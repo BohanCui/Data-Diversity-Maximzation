@@ -1,0 +1,37 @@
+ABSTRACT/RELATED WORDS:
+This project details the methods and experimental results of data diversity maximization for multiple groups-data distribution tailoring. The goal is to maximize the diversity when processing data from multiple sources. Algorithms such as greedy algorithms and local search algorithms have been applied with different thresholds. The experiments are run for two cases: 1. Multiple data sources generated using random numbers under Gaussian distribution.  2. Image datasets converted into vectors then use Cosine similarity for similarity measures. For case one, a streaming algorithm is implemented as a new, more efficient method compared with the greedy local search method used as the baseline. For case two, an algorithm is implemented to first calculate the pairwise distance between all images then select the k diverse images from a subset of images.  Bar chart is then applied for data visualization.  
+Keywords - data diversity maximization, stream processing, greedy algorithm, vector, image similarity
+
+
+ORIGINAL PROBLEM DEFINITION:
+Suppose there is a collection of n data sources L = {D1, … ,Dn} where each data source Di contains a finite set of tuples.  The goal of this data tailoring problem is to collect a unified set of tuples that maximizing the diversity of all data collected by maximizing the minimal distance between tuples. We want the most diversified O = i=1nOi, where 𝑂𝑖 is the tuples sampled from 𝐷i. Note a tuple in 𝐷𝑖 may also be in 𝐷𝑗 where 𝑖 ≠ 𝑗.
+
+
+ALGORITHM USED:
+Algorithm 1: Streaming Algorithm for gaussian distribution. Treat each data source as a stream, and gather the most diversified data. 
+
+Algorithm 2: Iterated greedy maximum diversity baseline using Local search: performs a simple greedy local search algorithm
+
+Algorithm 3: Convert Image into Vector then calculate similarity measures for all data pairs, use those saved measures for selecting the most diversified data points by applying algorithm 1 and algorithm 2 to see similarity results. 
+
+
+LIMITATIONS:
+Theoritical worst case: the most diversified results from each data source completely overlap.
+The cost and budge are "infinite" which is not realistic in real-world application.
+Long pre-process time for Algorithm 2 and 3. 
+
+
+NOW EDITING/CHANGING:
+1. add an limitation on the budge and memory size. Consider multiple streams comming in at real time.
+GOAL: always keep the maximum diversity dataset saved while collecting from multiple sources.
+
+2. Instead of gathering equally from all data source then repeat the algorithm once again with combine results, random sample data points from each data source and normalize it to see distribution first.
+Once firgure out the distirbution, take higher percentage from the least overlapped sources.
+GOAL: Reduce overlap across datsources as much as possible, incraese theoritcal worest case.
+
+
+NEW CHANGES MADE 9/16/2022
+Remodified the input and output form for alg0.1 for accepting input kind
+
+
+
