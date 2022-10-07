@@ -7,17 +7,22 @@ ORIGINAL PROBLEM DEFINITION:
 Suppose there is a collection of n data sources L = {D1, … ,Dn} where each data source Di contains a finite set of tuples.  The goal of this data tailoring problem is to collect a unified set of tuples that maximizing the diversity of all data collected by maximizing the minimal distance between tuples. We want the most diversified O = i=1nOi, where 𝑂𝑖 is the tuples sampled from 𝐷i. Note a tuple in 𝐷𝑖 may also be in 𝐷𝑗 where 𝑖 ≠ 𝑗.
 
 
+NEW PROBLEM DEFINITION:
+Suppose there is a collection of n data streams L = {D1, … ,Dn} coming in at the same time, each data stream Di contains a finite set of tuples.  The goal of this problem is to collect a unified set of tuples that maximizes the diversity of data points collected by first maximizing the minimal distance between tuples instead each streams, then only sample the unique ones across the streams. We want the most diversified O = i=1nOi, where 𝑂𝑖 is the tuples sampled from 𝐷i. Note a tuple in 𝐷𝑖 may also be in 𝐷𝑗 where 𝑖 ≠ 𝑗.
+
+
 ALGORITHM USED:
 Algorithm 1: Streaming Algorithm for gaussian distribution. Treat each data source as a stream, and gather the most diversified data. 
+ALgorithm 1*: For collecting unique ones across each streams. (NEED debugg.)
 
-Algorithm 2: Iterated greedy maximum diversity baseline using Local search: performs a simple greedy local search algorithm
+Algorithm 2: Iterated greedy maximum diversity baseline using Local search: performs a simple greedy local search algorithm. 
 
 Algorithm 3: Convert Image into Vector then calculate similarity measures for all data pairs, use those saved measures for selecting the most diversified data points by applying algorithm 1 and algorithm 2 to see similarity results. 
 
 
 LIMITATIONS:
-Theoritical worst case: the most diversified results from each data source completely overlap.
-The cost and budge are "infinite" which is not realistic in real-world application.
+Theoritical worst case: the most diversified results from each data source completely overlap. ---> solved by processing streams at same time
+The cost and budge are "infinite" which is not realistic in real-world application. ---> don't know how to limit
 Long pre-process time for Algorithm 2 and 3. 
 
 
@@ -31,7 +36,11 @@ GOAL: Reduce overlap across datsources as much as possible, incraese theoritcal 
 
 
 NEW CHANGES MADE 9/16/2022
-Remodified the input and output form for alg0.1 for accepting input kind
+Remodified the input and output form for alg0.1 for accepting input kinds
+
+NEW CHANGES MADE 10/6/2022
+Tested oritginal inputs on real-world dataset Adults for timing and result, debugged the distance function, reuploaded. 
+
 
 
 
