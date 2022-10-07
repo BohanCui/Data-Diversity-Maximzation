@@ -40,24 +40,6 @@ def euclidean_dist_sparse(elem1: ElementSparse, elem2: ElementSparse) -> float:
     return np.sqrt(sum_len)
 
 
-def manhattan_dist(elem1: Element, elem2: Element) -> float:
-    if len(elem1.features) != len(elem2.features):
-        raise AssertionError("dimension not match")
-    return distance.cityblock(elem1.features, elem2.features)
-
-
-def manhattan_dist_sparse(elem1: ElementSparse, elem2: ElementSparse) -> float:
-    sum_len = 0.0
-    for j in elem1.features.keys():
-        if j in elem2.features.keys():
-            sum_len += np.abs(elem1.features[j] - elem2.features[j])
-        else:
-            sum_len += elem1.features[j]
-    for j in elem2.features.keys():
-        if j not in elem2.features.keys():
-            sum_len += elem2.features[j]
-    return sum_len
-
 
 def cosine_dist(elem1: Element, elem2: Element) -> float:
     if len(elem1.features) != len(elem2.features):
