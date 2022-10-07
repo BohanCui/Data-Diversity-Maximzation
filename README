@@ -12,13 +12,15 @@ Suppose there is a collection of n data streams L = {D1, … ,Dn} coming in at t
 
 
 ALGORITHM USED:
-Algorithm 1: Streaming Algorithm for gaussian distribution. Treat each data source as a stream, and gather the most diversified data. 
-ALgorithm 1*: For collecting unique ones across each streams. (NEED debugg.)
+Algorithm 1: Streaming Algorithm for gaussian distribution. Process each stream individually, calculate U for optimu using Max-Min Distance, get the most diversified data for that stream in a list. 
+ALgorithm 1*: Collecting unique ones across each streams's most diversified list. (STILL NEED debugg.)
 
 Algorithm 2: Iterated greedy maximum diversity baseline using Local search: performs a simple greedy local search algorithm. 
 
 Algorithm 3: Convert Image into Vector then calculate similarity measures for all data pairs, use those saved measures for selecting the most diversified data points by applying algorithm 1 and algorithm 2 to see similarity results. 
 
+Before: Sample all data points from source 1, then from source 2, then from source 3.
+NOW: Calculate diversified points for sources, get one from S1, check S2, if S1 == S2, sample a new one from S2, then check if S1 == S2 == S3, if not, sample again from S1 list, continue untill all elements are looped in each stream.
 
 LIMITATIONS:
 Theoritical worst case: the most diversified results from each data source completely overlap. ---> solved by processing streams at same time
