@@ -64,10 +64,7 @@ def StreamDivMax(X: ElemList, k: int, dist: Callable[[Any, Any], float], eps: fl
         if len(ins.idxs) == k and ins.div > max_div:
             max_inst = ins
             max_div = ins.div
-    return max_inst.idxs, max_inst.div
-
-
-#below is for algorithm 2 
+    return max_inst.idxs, max_inst.div 
 
 
 
