@@ -77,8 +77,4 @@ for k in values_k:
     writer.writerow(["Adult", "Sex", m, k, "FairSwap", "-", np.average(fair_swap[0]), "-", "-", "-", np.average(fair_swap[1])])
     writer.writerow(["Adult", "Sex", m, k, "FairFlow", "-", np.average(fair_flow[0]), "-", "-", "-", np.average(fair_flow[1])])
     writer.writerow(["Adult", "Sex", m, k, "FairGMM", "-", np.average(fair_gmm[0]), "-", "-", "-", np.average(fair_gmm[1])])
-    writer.writerow(["Adult", "Sex", m, k, "Alg1", 0.1, np.average(alg1[0]), np.average(alg1[1]), np.average(alg1[2]),
-                     np.average(alg1[3]), np.average(alg1[2]) + np.average(alg1[3])])
-    writer.writerow(["Adult", "Sex", m, k, "Alg2", 0.1, np.average(alg2[0]), np.average(alg2[1]), np.average(alg2[2]),
-                     np.average(alg2[3]), np.average(alg2[2]) + np.average(alg2[3])])
     output.flush()
